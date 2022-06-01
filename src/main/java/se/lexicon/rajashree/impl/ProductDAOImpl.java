@@ -14,20 +14,25 @@ public class ProductDAOImpl implements ProductDAO {
     Connection connection = null;
     Statement statement = null;
 
+
     @Override
     public Product save(Product product) {
 
         try {
+            System.out.println("Product : "+product.getId() +" "+product.getName()+" "+product.getPrice());
             connection = mySQLConnection.getConnection();
-            statement = connection.createStatement();
-            String schema = "USE shopping_practice";
-            ResultSet resultSet1 = statement.executeQuery(schema);
-            String insertProductRow = "INSERT INTO Product (id, name, price) VALUES (003,'ITEM3', 2500.0);";
-            int k = statement.executeUpdate(insertProductRow);
+            String insertProductRow = "INSERT INTO Product (name, price) VALUES (?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(insertProductRow);
+            preparedStatement.setString(1, product.getName());
+            preparedStatement.setDouble(2, product.getPrice());
+            int k = preparedStatement.executeUpdate();
 
+
+            // todo: return the generated key and then set it to product id
         } catch (SQLException e) {
             e.fillInStackTrace();
         }
+        // todo: close the connection and prepared statement
 
         return null;
     }

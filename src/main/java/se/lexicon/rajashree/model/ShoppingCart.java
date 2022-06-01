@@ -19,6 +19,15 @@ public class ShoppingCart {
         this.paymentApproved = paymentApproved;
     }
 
+    public ShoppingCart( LocalDateTime lastUpdate, String orderStatus, String deliveryAddress, String customerReference) {
+        this.lastUpdate = lastUpdate;
+        this.orderStatus = orderStatus;
+        this.deliveryAddress = deliveryAddress;
+        this.customerReference = customerReference;
+    }
+
+
+
     public int getId() {
         return id;
     }

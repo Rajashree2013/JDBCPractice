@@ -16,6 +16,13 @@ public class ShoppingCartItem {
         this.cart = cart;
     }
 
+    public ShoppingCartItem(int amount, double totalPrice, Product item, ShoppingCart cart) {
+        this.amount = amount;
+        this.totalPrice = totalPrice;
+        this.item = item;
+        this.cart = cart;
+    }
+
     public int getId() {
         return id;
     }

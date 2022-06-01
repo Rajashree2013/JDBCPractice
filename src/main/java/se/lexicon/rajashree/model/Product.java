@@ -1,30 +1,36 @@
 package se.lexicon.rajashree.model;
 
 public class Product {
-    private int Id;
-    private String Name;
+    //todo: define variables with lowercase letter
+    private int id;
+    private String name;
     private double price;
 
     public Product(int id, String name, double price) {
-        Id = id;
-        Name = name;
+        this.id= id;
+        this.name= name;
+        this.price = price;
+    }
+
+    public Product(String name, double price) {
+        this.name = name;
         this.price = price;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        name = name;
     }
 
     public double getPrice() {
